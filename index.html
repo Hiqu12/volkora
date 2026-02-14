@@ -1,0 +1,3152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volkora Ecommerce - Best Deals in Pakistan</title>
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+    </script>
+    <script>
+document.addEventListener("keydown", function (e) {
+
+  // Disable F12
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+
+  // Disable Ctrl+Shift+I / J / C
+  if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key)) {
+    e.preventDefault();
+  }
+
+  // Disable Ctrl+U (view source)
+  if (e.ctrlKey && e.key === "u") {
+    e.preventDefault();
+  }
+
+  // Disable Ctrl+S
+  if (e.ctrlKey && e.key === "s") {
+    e.preventDefault();
+  }
+
+  // Disable Ctrl+C / Ctrl+V / Ctrl+X
+  if (e.ctrlKey && ["c","v","x"].includes(e.key)) {
+    e.preventDefault();
+  }
+
+});
+</script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Header */
+      header {
+        background: #ffffff;
+        color: white;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        /* box-shadow: 0 4px 15px rgba(0,0,0,0.3); */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s;
+        height: 70px;
+      }
+
+      header.scrolled {
+        padding: 0.8rem 2rem;
+        background: #ffffff;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #logo {
+        position: relative;
+        height: 100px;
+        width: 100px;
+      }
+
+      #mobileMenu{
+        display: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #ffd700;
+      }
+
+      .cart-icon {
+        cursor: pointer;
+        background: transparent;
+        color: #111;
+        padding: 0.7rem 1.3rem;
+        border-radius: 50px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.3s;
+      }
+
+      .cart-icon:hover {
+        transform: scale(1.05);
+        background: #d3d2d0;
+      }
+
+      .hamburger {
+        display: none;
+
+        cursor: pointer;
+      }
+
+      .hamburger i {
+        background: white;
+        color: black;
+        transition: 0.4s;
+      }
+
+      /* Hero */
+      .hero {
+        background: #ffffff;
+        padding: 6rem 2rem 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: #111;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        color: #555;
+      }
+
+      .hero-images {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+
+      .hero-images img {
+        max-width: 280px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        transition: transform 0.4s;
+      }
+
+      .hero-images img:hover {
+        transform: scale(1.06);
+      }
+
+      .hero .shop-btn {
+        background: #111;
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        font-size: 1.3rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .hero .shop-btn:hover {
+        background: #ffd700;
+        color: #111;
+        transform: translateY(-3px);
+      }
+
+      /* =====================================
+   Enhanced Responsive Search Bar
+   ===================================== */
+      .search-container {
+        max-width: 720px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        position: relative;
+        z-index: 10;
+      }
+      .search-container h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #111;
+        font-size: 1.8rem;
+      }
+
+      /* Sticky on scroll (optional - comment out if not wanted) */
+      .search-container.sticky {
+        position: sticky;
+        top: 70px; /* adjust based on your header height */
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        z-index: 900;
+        padding: 1rem 1rem;
+        margin: 0;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .search-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 60px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .search-wrapper:focus-within {
+        box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.18);
+        transform: translateY(-1px);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 18px;
+        color: #999;
+        font-size: 1.35rem;
+        pointer-events: none;
+        transition: color 0.3s;
+      }
+
+      #searchInput {
+        width: 100%;
+        padding: 1.1rem 5rem 1.1rem 3.2rem;
+        font-size: 1.05rem;
+        border: none;
+        outline: none;
+        background: transparent;
+      }
+
+      #searchInput::placeholder {
+        color: #aaa;
+        opacity: 0.9;
+      }
+
+      .search-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-right: 12px;
+      }
+
+      .voice-btn,
+      .clear-btn {
+        background: none;
+        border: none;
+        color: #777;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.25s ease;
+      }
+
+      .voice-btn:hover {
+        color: #2196f3;
+        background: rgba(33, 150, 243, 0.08);
+        transform: scale(1.1);
+      }
+
+      .clear-btn {
+        color: #e74c3c;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.8);
+      }
+
+      .clear-btn.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+
+      .clear-btn:hover {
+        background: #ffebee;
+        transform: scale(1.15);
+      }
+
+      /* Hint text */
+      .search-hint-wrapper {
+        text-align: center;
+        margin-top: 0.8rem;
+      }
+
+      .search-hint {
+        color: #888;
+        font-size: 0.92rem;
+        opacity: 0.85;
+        display: block;
+      }
+
+      /* Mobile / Tablet adjustments */
+      @media (max-width: 768px) {
+
+
+       /* Mobile Menu - Full width smooth style */
+#mobileMenu {
+  display: block;
+  width: 100%;
+ height: 600px;          /* optional: limit height + scroll */
+  overflow-y: auto;            /* scroll if too many links */
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+  border-top: 1px solid #eee;
+  padding: 2rem 1.5rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  
+  /* Smooth roll-down animation (when .active is added) */
+  opacity: 0;
+  transform: translateY(-30px) scaleY(0.96);
+  transition: 
+    opacity 0.45s ease-out,
+    transform 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    max-height 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#mobileMenu.active {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+}
+
+/* Link styling inside mobile menu */
+#mobileMenu a {
+  display: block;
+  padding: 1.2rem 1rem;
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  border-bottom: 1px solid #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+#mobileMenu a:hover,
+#mobileMenu a:focus {
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.04);
+  padding-left: 1.4rem;
+}
+
+/* Last link - no bottom border */
+#mobileMenu a:last-child {
+  border-bottom: none;
+}
+
+/* Optional: Add icons before links (if you want) */
+#mobileMenu a::before {
+  content: "→";
+  margin-right: 12px;
+  color: #999;
+  font-size: 1.1rem;
+  transition: margin-right 0.3s;
+}
+
+#mobileMenu a:hover::before {
+  margin-right: 16px;
+  color: #e91e63;
+}
+
+/* Make scrollbar pretty (optional) */
+#mobileMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+#mobileMenu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#mobileMenu::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+#mobileMenu::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Extra spacing at bottom */
+#mobileMenu::after {
+  content: "";
+  display: block;
+  height: 2rem;
+}
+        .search-container {
+          margin: 1.5rem auto;
+          padding: 0 1rem;
+        }
+
+        #searchInput {
+          padding: 1rem 4.5rem 1rem 3rem;
+          font-size: 1rem;
+        }
+
+        .search-icon {
+          left: 14px;
+          font-size: 1.2rem;
+        }
+
+        .search-actions {
+          padding-right: 8px;
+        }
+
+        .voice-btn,
+        .clear-btn {
+          padding: 8px;
+          font-size: 1.15rem;
+        }
+
+        .search-hint {
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .search-wrapper {
+          border-radius: 40px;
+        }
+
+        #searchInput {
+          padding: 0.95rem 4rem 0.95rem 2.8rem;
+        }
+      }
+
+      /* Products */
+      .products {
+        padding: 3rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .product {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+      }
+
+      .product:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 1.2rem;
+        text-align: center;
+      }
+
+      .product-info h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      .product-info .price {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #e91e63;
+        margin-bottom: 1rem;
+      }
+
+      .add-to-cart {
+        background: #111;
+        color: white;
+        border: none;
+        padding: 0.9rem 1.8rem;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 17px;
+        border-top-right-radius: 17px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .add-to-cart:hover {
+        background: #e91e63;
+        color: #ffffff;
+      }
+      /* Description Button in Product Card */
+      .desc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0.8rem 0 1.2rem;
+        padding: 0.55rem 1.3rem;
+        font-size: 0.95rem;
+        color: #e91e63;
+        background: rgba(233, 30, 99, 0.07);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .desc-btn:hover {
+        background: rgba(233, 30, 99, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .desc-btn i {
+        font-size: 1.05rem;
+      }
+
+      /* Optional: Make it look secondary next to Add to Cart */
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .add-to-cart {
+        margin-top: 0.4rem; /* space after description button */
+      }
+
+      /* Cart Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal.show {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 700px;
+        border-radius: 16px;
+        padding: 2rem;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #999;
+      }
+
+      .close-btn:hover {
+        color: #e74c3c;
+      }
+
+      /* === Cart Item with Thumbnail === */
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        background: #fafafa;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        transition: all 0.25s ease;
+      }
+
+      .cart-item:hover {
+        background: #f5f5f5;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .cart-item-thumbnail {
+        width: 70px;
+        height: 70px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #eee;
+        background: #fff;
+      }
+
+      .cart-item-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .cart-item-info {
+        flex: 1;
+        min-width: 0; /* prevents overflow */
+      }
+
+      .item-name {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 0.4rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .item-price-line {
+        font-size: 1rem;
+        color: #555;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .unit-price {
+        font-weight: 600;
+        color: #e91e63;
+      }
+
+      .times,
+      .equals {
+        color: #aaa;
+        font-weight: bold;
+      }
+
+      .subtotal {
+        font-weight: 700;
+        color: #27ae60;
+        font-size: 1.1rem;
+      }
+
+      /* Quantity & Remove Controls */
+      .cart-item-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-shrink: 0;
+      }
+
+      .qty-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #eee;
+        color: #333;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+      }
+
+      .qty-btn:hover {
+        background: #e91e63;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .qty-display {
+        min-width: 32px;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .remove-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #ffebee;
+        color: #e74c3c;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+      }
+
+      .remove-btn:hover {
+        background: #e74c3c;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      /* Empty Cart (unchanged but enhanced) */
+      .empty-cart-message {
+        text-align: center;
+        padding: 3.5rem 1rem;
+        color: #777;
+      }
+
+      .empty-icon {
+        font-size: 5rem;
+        color: #e0e0e0;
+        margin-bottom: 1.2rem;
+      }
+
+      .empty-cart-message p {
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+        color: #555;
+      }
+
+      .empty-cart-message small {
+        color: #999;
+        font-size: 1rem;
+      }
+      /* Checkout Form */
+      #checkout-form {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+      }
+
+      #checkout-form label {
+        display: block;
+        margin: 1rem 0 0.4rem;
+        font-weight: 600;
+      }
+
+      #checkout-form input,
+      #checkout-form select,
+      #checkout-form textarea {
+        width: 100%;
+        padding: 0.9rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      #payment-instructions {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: #fff3cd;
+        border-radius: 8px;
+        color: #856404;
+      }
+
+      /* =======================
+   About Section
+   ======================= */
+      .about-section {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        color: #111;
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-text h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: #e91e63;
+        bottom: -12px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .lead {
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .highlight {
+        color: #e91e63;
+        font-weight: 700;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1.4rem;
+        color: #555;
+        line-height: 1.8;
+      }
+
+      .mission-values {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.8rem;
+        margin: 2.5rem 0;
+      }
+
+      .mission-card {
+        background: white;
+        padding: 2rem 1.8rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        text-align: center;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .mission-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .mission-card i {
+        font-size: 2.8rem;
+        color: #e91e63;
+        margin-bottom: 1rem;
+      }
+
+      .mission-card h4 {
+        font-size: 1.35rem;
+        margin-bottom: 0.8rem;
+        color: #111;
+      }
+
+      .mission-card p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .shop-link {
+        display: inline-block;
+        background: #111;
+        color: white;
+        padding: 1rem 2.2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.15rem;
+        transition: all 0.3s;
+      }
+
+      .shop-link:hover {
+        background: #e91e63;
+        transform: translateY(-3px);
+      }
+
+      /* Image Side */
+      .about-image {
+        position: relative;
+      }
+
+      .main-img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        object-fit: cover;
+      }
+
+      .image-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.65);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .image-overlay span {
+        font-weight: 500;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .about-text {
+          text-align: center;
+        }
+
+        .about-text h2::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .mission-values {
+          grid-template-columns: 1fr;
+        }
+
+        .shop-link {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .about-section {
+          padding: 4rem 1.5rem;
+        }
+
+        .about-text h2 {
+          font-size: 2.4rem;
+        }
+      }
+      /* Policies Modal - Smooth Animations */
+      .policy-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.4s ease,
+          backdrop-filter 0.5s ease,
+          visibility 0.5s ease;
+      }
+
+      .policy-modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+      }
+
+      .policy-modal-box {
+        background: white;
+        width: 90%;
+        max-width: 640px;
+        max-height: 85vh;
+        overflow-y: auto;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+        position: relative;
+        transform: scale(0.7) translateY(60px);
+        opacity: 0;
+        transition:
+          transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.45s ease;
+      }
+
+      .policy-modal-overlay.show .policy-modal-box {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      .policy-close-btn {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+        font-size: 2.6rem;
+        background: none;
+        border: none;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .policy-close-btn:hover {
+        color: #e74c3c;
+        transform: rotate(90deg) scale(1.15);
+      }
+
+      .policy-modal-box h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #111;
+        font-size: 2.4rem;
+        position: relative;
+      }
+
+      .policy-modal-box h2::after {
+        content: "";
+        width: 100px;
+        height: 5px;
+        background: #e91e63;
+        position: absolute;
+        bottom: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+      }
+
+      .policy-block {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .policy-block h3 {
+        color: #e91e63;
+        margin-bottom: 1rem;
+        font-size: 1.45rem;
+      }
+
+      .policy-block ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .policy-block ul li {
+        margin-bottom: 0.9rem;
+        padding-left: 1.8rem;
+        position: relative;
+        font-size: 1.05rem;
+        color: #444;
+      }
+
+      .policy-block ul li::before {
+        content: "✔";
+        color: #27ae60;
+        position: absolute;
+        left: 0;
+        font-size: 1.2rem;
+      }
+
+      .contact-text {
+        text-align: center;
+        margin-top: 2.2rem;
+        font-size: 1.15rem;
+        color: #555;
+        padding: 1.4rem;
+        background: #f9f9f9;
+        border-radius: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .policy-modal-box {
+          padding: 2rem 1.6rem;
+          width: 94%;
+        }
+
+        .policy-modal-box h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Description Button in Cart Item */
+      .desc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 0.6rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.92rem;
+        color: #e91e63;
+        background: rgba(233, 30, 99, 0.08);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .desc-btn:hover {
+        background: rgba(233, 30, 99, 0.18);
+        transform: translateY(-1px);
+      }
+
+      .desc-btn i {
+        font-size: 1rem;
+      }
+
+      /* Description Modal */
+      .desc-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+        z-index: 2500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.4s ease,
+          visibility 0.4s ease;
+      }
+
+      .desc-modal-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .desc-modal-box {
+        background: white;
+        width: 90%;
+        max-width: 520px;
+        border-radius: 16px;
+        padding: 2rem 1.8rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        position: relative;
+        transform: scale(0.8) translateY(40px);
+        opacity: 0;
+        transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .desc-modal-overlay.show .desc-modal-box {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      .desc-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2.4rem;
+        background: none;
+        border: none;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .desc-close-btn:hover {
+        color: #e74c3c;
+        transform: rotate(90deg);
+      }
+
+      .desc-modal-box h3 {
+        text-align: center;
+        margin-bottom: 1.4rem;
+        color: #111;
+        font-size: 1.6rem;
+      }
+
+      #descContent {
+        font-size: 1.05rem;
+        color: #444;
+        line-height: 1.7;
+        margin-bottom: 1.8rem;
+      }
+
+      .desc-ok-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 0.9rem 2.2rem;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+
+      .desc-ok-btn:hover {
+        background: #c2185b;
+        transform: translateY(-2px);
+      }
+
+      .product-code {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 0.4rem;
+        font-family: monospace;
+        background: #f8f8f8;
+        padding: 2px 8px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      /* Testimonials */
+      .testimonials {
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e9fd 100%);
+        text-align: center;
+      }
+
+      .testimonials h2 {
+        margin-bottom: 2.5rem;
+        font-size: 2.5rem;
+      }
+
+      .carousel {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .carousel-inner {
+        display: inline-flex;
+        animation: scroll 35s linear infinite;
+      }
+
+      .testimonial-card {
+        min-width: 340px;
+        margin: 0 1.5rem;
+        background: white;
+        padding: 1.8rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* =====================================
+   Enhanced Modern Footer
+   ===================================== */
+      .enhanced-footer {
+        background: #111;
+        color: #ddd;
+        padding: 4rem 2rem 2rem;
+        font-size: 0.95rem;
+      }
+
+      .footer-container {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-brand .footer-logo {
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .footer-tagline {
+        color: #bbb;
+        line-height: 1.6;
+      }
+
+      .footer-social h4 {
+        color: white;
+        margin-bottom: 1.2rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1.2rem;
+      }
+
+      .social-icons a {
+        color: #bbb;
+        font-size: 1.6rem;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #e91e63;
+        transform: translateY(-3px);
+      }
+
+      .footer-middle {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        padding: 2.5rem 0;
+      }
+
+      .footer-column h4 {
+        color: white;
+        margin-bottom: 1.4rem;
+        font-size: 1.2rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.9rem;
+      }
+
+      .footer-column ul li a {
+        color: #bbb;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column ul li a:hover {
+        color: #e91e63;
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .contact-list i {
+        color: #e91e63;
+        width: 24px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 1rem;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 0.9rem 1.2rem;
+        border: none;
+        border-radius: 30px 0 0 30px;
+        font-size: 1rem;
+      }
+
+      .newsletter-form button {
+        padding: 0.9rem 1.8rem;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 0 30px 30px 0;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .newsletter-form button:hover {
+        background: #c2185b;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+      }
+
+      .payment-methods h2 {
+        color: white;
+        margin-bottom: 1rem;
+        text-align: center;
+      
+      }
+
+      .payment-icons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .payment-icons i {
+        height: 40px;
+        width: 40px;
+        opacity: 0.9;
+        transition: opacity 0.3s;
+      }
+      .payment-icons img{
+        height: 36px;
+        gap: 1rem;
+      }
+
+
+      .payment-icons img:hover {
+        opacity: 1;
+      }
+
+      .copyright {
+        text-align: center;
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      .copyright p {
+        margin: 0.4rem 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .footer-top {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .footer-social {
+          margin-top: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-middle {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .newsletter-form input,
+        .newsletter-form button {
+          border-radius: 30px;
+        }
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 280px;
+        right: 5px;
+        background: transparent;
+        color: green;
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+        border-radius: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        box-shadow: 0 8px 25px rgba(163, 163, 163, 0.5);
+        z-index: 999;
+        transition: 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        /* Hide menu by default */
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: #ffffff;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+          z-index: 999;
+          overflow: hidden;
+
+          /* Starting state for roll animation */
+          max-height: 0;
+          opacity: 0;
+          transform: translateY(-15px) scaleY(0.95);
+          transition:
+            max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            opacity 0.45s ease,
+            transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* When open → roll down effect */
+        .nav-links.active {
+          display: flex;
+          max-height: 600px; /* large enough for all links */
+          opacity: 1;
+          transform: translateY(0) scaleY(1);
+        }
+
+        /* Each link rolls in with slight delay */
+        .nav-links a {
+          padding: 1.1rem 2rem;
+          font-size: 1.15rem;
+          color: #222;
+          text-decoration: none;
+          border-bottom: 1px solid #f0f0f0;
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: all 0.4s ease;
+        }
+
+        /* Staggered entrance for each link */
+        .nav-links.active a {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        /* Delay for each link (creates roll/cascade effect) */
+        .nav-links.active a:nth-child(1) {
+          transition-delay: 0.05s;
+        }
+        .nav-links.active a:nth-child(2) {
+          transition-delay: 0.1s;
+        }
+        .nav-links.active a:nth-child(3) {
+          transition-delay: 0.15s;
+        }
+        .nav-links.active a:nth-child(4) {
+          transition-delay: 0.2s;
+        }
+        .nav-links.active a:nth-child(5) {
+          transition-delay: 0.25s;
+        }
+        .nav-links.active a:nth-child(6) {
+          transition-delay: 0.3s;
+        }
+
+        /* Hamburger icon styling */
+        .hamburger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          cursor: pointer;
+          position: relative;
+          border-radius: 8px;
+          transition: background 0.3s;
+        }
+
+        .hamburger:hover {
+          background: rgba(0, 0, 0, 0.07);
+        }
+
+        .hamburger-icon {
+          font-size: 1.7rem;
+          color: #111;
+          position: absolute;
+          transition: all 0.4s ease;
+        }
+
+        .open-icon {
+          opacity: 1;
+          transform: rotate(0deg) scale(1);
+        }
+
+        .close-icon {
+          opacity: 0;
+          transform: rotate(-90deg) scale(0.8);
+        }
+
+        .hamburger.active .open-icon {
+          opacity: 0;
+          transform: rotate(90deg) scale(0.8);
+        }
+
+        .hamburger.active .close-icon {
+          opacity: 1;
+          transform: rotate(0deg) scale(1);
+        }
+
+        .hero h1 {
+          font-size: 2.6rem;
+        }
+
+        .hero-images img {
+          max-width: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="logo-container">
+        <img
+          src="assets/volkora-removebg-preview.png"
+          id="logo"
+          alt="Volkora Logo"
+        />
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#home">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#policies">Policies</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars hamburger-icon open-icon"></i>
+        <i class="fas fa-times hamburger-icon close-icon"></i>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav class="nav-links" id="mobileMenu">
+        <div class="logo-container">
+        <img
+          src="assets/volkora-removebg-preview.png"
+          id="logo"
+          alt="Volkora Logo"
+          />
+          <p style="font-size: 0.9rem; margin-top: 10px; color: #555;">Your trusted shopping destination in Pakistan – Quality, Style, Fast Delivery.</p>
+        </div>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#policies">Policies</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Discover Premium Quality Products</h1>
+        <p>
+          Shop the latest trends in fashion, electronics, accessories & more —
+          delivered fast across Pakistan!
+        </p>
+        <p>Exclusive deals • COD Available • 7 Days Easy Return</p>
+
+        <div class="hero-images">
+          <img
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=500"
+            alt="Fashion Collection"
+          />
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Smartphones"
+          />
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Watches"
+          />
+        </div>
+
+        <button
+          class="shop-btn"
+          onclick="
+            document
+              .getElementById('products')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Shop Now →
+        </button>
+      </div>
+    </section>
+
+    <div class="search-container">
+      <h3>Search Items</h3>
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search shoes, shirts, watches..."
+          autocomplete="off"
+          aria-label="Search products"
+        />
+
+        <div class="search-actions">
+          <button
+            type="button"
+            class="clear-btn hidden"
+            id="clearSearch"
+            title="Clear search"
+            aria-label="Clear"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="search-hint-wrapper">
+        <small class="search-hint">
+          Try: "black running shoes", "smart watch", "oversized hoodie", "formal
+          shirt"
+        </small>
+      </div>
+    </div>
+
+    <main class="products" id="products"></main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="toggleCart()">×</span>
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-total">Total: <span id="cartTotal">0</span> PKR</div>
+
+        <button
+          class="add-to-cart"
+          style="width: 100%; margin: 1rem 0"
+          onclick="showCheckoutForm()"
+        >
+          Proceed to Checkout
+        </button>
+
+        <div id="checkout-form">
+          <h3>Checkout Details</h3>
+          <label>Full Name</label>
+          <input type="text" id="fullName" required />
+
+          <label>Phone Number</label>
+          <input type="tel" id="phone" required />
+
+          <label>Delivery Address</label>
+          <textarea id="address" rows="3" required></textarea>
+
+          <label>Payment Method</label>
+          <select id="paymentMethod">
+            <option value="cod">Cash on Delivery</option>
+            <option value="easypaisa">EasyPaisa</option>
+            <option value="jazzcash">JazzCash</option>
+            <option value="bank">Bank Transfer</option>
+          </select>
+
+          <div id="payment-instructions">
+            <p>
+              <strong>Important:</strong> Please contact us on WhatsApp
+              <strong>before</strong> making any payment.
+            </p>
+            <p>
+              After order confirmation, send payment to one of the following:
+            </p>
+            <ul>
+              <li>EasyPaisa: 03278505273</li>
+              <li>JazzCash: 03278505273</li>
+              <li>Bank: HBL – 1234-567890-01-2 (Volkora Enterprises)</li>
+            </ul>
+            <p>Send screenshot to WhatsApp: <strong>+923278505273</strong></p>
+          </div>
+
+          <button
+            class="add-to-cart"
+            style="width: 100%"
+            onclick="submitOrder()"
+          >
+            Confirm Order & Chat on WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-content">
+          <!-- Left - Text -->
+          <div class="about-text">
+            <h2>About Volkora Ecommerce</h2>
+            <p class="lead">
+              Welcome to <span class="highlight">Volkora Ecommerce</span> — your
+              trusted destination for premium fashion, footwear, smart watches,
+              and accessories in Pakistan.
+            </p>
+            <p>
+              Founded in the heart of Gujranwala, we started with a simple
+              mission: to bring high-quality products with unbeatable prices
+              directly to your doorstep — without compromise on style or
+              service.
+            </p>
+            <p>
+              Whether you're looking for the latest streetwear, elegant formal
+              shirts, durable running shoes, or cutting-edge smartwatches — we
+              curate only the best so you can shop with confidence.
+            </p>
+
+            <div class="mission-values">
+              <div class="mission-card">
+                <i class="fas fa-rocket"></i>
+                <h4>Our Mission</h4>
+                <p>
+                  To deliver trendy, reliable, and affordable products with fast
+                  nationwide shipping and 100% customer satisfaction.
+                </p>
+              </div>
+              <div class="mission-card">
+                <i class="fas fa-heart"></i>
+                <h4>Our Values</h4>
+                <p>Quality • Trust • Speed • Transparency • Customer First</p>
+              </div>
+            </div>
+
+            <a href="#products" class="shop-link">Explore Our Collection →</a>
+          </div>
+
+          <!-- Right - Image / Visual -->
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Happy customers shopping fashion"
+              class="main-img"
+            />
+            <div class="image-overlay">
+              <span>Since 2024</span>
+              <span>Gujranwala, Pakistan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background:#f9f9f9;
+      color:#333;
+      line-height:1.6;
+    }
+
+    /* Section */
+    .testimonials {
+      padding:5rem 1.5rem 7rem;
+      background:linear-gradient(135deg,#f8f9fa 0%,#e8f0fe 100%);
+      text-align:center;
+    }
+
+    .testimonials-header {
+      max-width:1200px;
+      margin:0 auto 3rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:1.5rem;
+    }
+
+    .testimonials h2 {
+      font-size:2.8rem;
+      color:#111;
+      margin:0;
+    }
+
+    .feedback-btn {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:0.9rem 1.8rem;
+      background:#e91e63;
+      color:white;
+      border:none;
+      border-radius:50px;
+      font-size:1.05rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:all 0.3s;
+    }
+
+    .feedback-btn:hover {
+      background:#c2185b;
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(233,30,99,0.25);
+    }
+
+    /* Carousel */
+    .carousel-container {
+      max-width:1200px;
+      margin:0 auto;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .carousel-inner {
+      display:flex;
+      animation:scroll 50s linear infinite;
+      width:max-content;
+    }
+
+    @keyframes scroll {
+      0% { transform:translateX(0); }
+      100% { transform:translateX(-50%); }
+    }
+
+    .testimonial-card {
+      flex:0 0 360px;
+      margin:0 1.5rem;
+      background:white;
+      padding:2rem;
+      border-radius:16px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      text-align:left;
+      transition:transform 0.4s;
+    }
+
+    .testimonial-card:hover {
+      transform:translateY(-8px);
+    }
+
+    .stars {
+      color:#f39c12;
+      font-size:1.3rem;
+      margin-bottom:1rem;
+    }
+
+    .testimonial-card p {
+      margin:0 0 1rem;
+      font-size:1.08rem;
+      color:#444;
+      line-height:1.6;
+
+    }
+
+    .testimonial-card strong {
+      color:#e91e63;
+      font-weight:600;
+    }
+
+    /* Feedback Modal */
+    .feedback-modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.65);
+      backdrop-filter:blur(6px);
+      z-index:3000;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .feedback-modal.show {
+      display:flex;
+    }
+
+    .feedback-modal-content {
+      background:white;
+      width:90%;
+      max-width:520px;
+      border-radius:16px;
+      padding:2.5rem 2rem;
+      position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,0.35);
+      max-height:90vh;
+      overflow-y:auto;
+    }
+
+    .close-modal {
+      position:absolute;
+      top:15px;
+      right:20px;
+      font-size:2.5rem;
+      color:#888;
+      cursor:pointer;
+    }
+
+    .close-modal:hover { color:#e74c3c; }
+
+    .feedback-modal-content h3 {
+      text-align:center;
+      margin-bottom:2rem;
+      color:#111;
+    }
+
+    .form-group {
+      margin-bottom:1.5rem;
+    }
+
+    .form-group label {
+      display:block;
+      margin-bottom:0.6rem;
+      font-weight:600;
+      color:#444;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width:100%;
+      padding:0.9rem 1.2rem;
+      border:1px solid #ddd;
+      border-radius:8px;
+      font-size:1rem;
+    }
+
+    .form-group textarea { resize:vertical; min-height:120px; }
+
+    .star-rating {
+      display:flex;
+      flex-direction:row-reverse;
+      justify-content:center;
+      gap:6px;
+      margin:1rem 0;
+    }
+
+    .star-rating input { display:none; }
+
+    .star-rating label {
+      font-size:2.2rem;
+      color:#ddd;
+      cursor:pointer;
+      transition:color 0.2s;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input:checked ~ label {
+      color:#f39c12;
+    }
+
+    .submit-feedback-btn {
+      width:100%;
+      padding:1.1rem;
+      background:#27ae60;
+      color:white;
+      border:none;
+      border-radius:50px;
+      font-size:1.1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:all 0.3s;
+    }
+
+    .submit-feedback-btn:hover {
+      background:#219653;
+      transform:translateY(-2px);
+    }
+
+    /* Confirmation Modal */
+    .confirm-modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      z-index:4000;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .confirm-modal.show {
+      display:flex;
+    }
+
+    .confirm-box {
+      background:white;
+      padding:2.5rem;
+      border-radius:16px;
+      text-align:center;
+      max-width:420px;
+      width:90%;
+      box-shadow:0 15px 50px rgba(0,0,0,0.3);
+    }
+
+    .confirm-box h3 {
+      color:#27ae60;
+      margin-bottom:1.2rem;
+    }
+
+    .confirm-box p {
+      font-size:1.1rem;
+      color:#555;
+      margin-bottom:1.8rem;
+    }
+
+    .confirm-ok-btn {
+      padding:0.9rem 2.5rem;
+      background:#27ae60;
+      color:white;
+      border:none;
+      border-radius:50px;
+      font-size:1.05rem;
+      cursor:pointer;
+      transition:all 0.3s;
+    }
+
+    .confirm-ok-btn:hover {
+      background:#219653;
+      transform:scale(1.05);
+    }
+  /* Existing styles + new fixes */
+  .testimonial-card p {
+    margin: 0 0 1rem;
+    font-size: 1.08rem;
+    color: #444;
+    line-height: 1.6;
+    max-height: 120px;                /* Fixed height to prevent overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;            /* Show max 5 lines */
+    -webkit-box-orient: vertical;
+    transition: max-height 0.4s ease;
+  }
+
+  .testimonial-card:hover p {
+    max-height: 300px;                /* Expand on hover to show full text */
+    overflow-y: auto;
+  }
+
+  /* Feedback Search */
+  .feedback-search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  #feedbackSearch {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.2rem;
+    font-size: 1.05rem;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  #feedbackSearch:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.15);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1.3rem;
+  }
+  .delete-feedback-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #ffebee;
+  color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s;
+}
+
+.delete-feedback-btn:hover {
+  background: #e74c3c;
+  color: white;
+  transform: translateY(-1px);
+}
+.delete-feedback-btn {
+  display: none; /* hidden by default */
+}
+
+/* Show only if admin (you can toggle via JS or URL param) */
+body.admin-mode .delete-feedback-btn {
+  display: flex;
+}
+    /* Responsive */
+    @media (max-width:768px) {
+      .testimonials-header { flex-direction:column; text-align:center; }
+      .feedback-btn { margin-top:1rem; }
+      .testimonial-card { flex:0 0 300px; }
+    }
+  </style>
+
+
+<!-- Testimonials Section with Search Feedbacks & Fixed Overflow -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <h2>What Our Customers Say</h2>
+    <button class="feedback-btn" id="openFeedbackModal">
+      <i class="fas fa-comment-dots"></i> Send Your Feedback
+    </button>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-inner" id="carouselInner"></div>
+    </div>
+  </div>
+
+  <!-- Feedback Search & Recent Feedback -->
+  <div class="recent-feedback" id="recentFeedbackSection">
+    <h3>Recent Customer Feedback</h3>
+
+    <!-- Search Feedbacks Input -->
+    <div class="feedback-search-container">
+      <input 
+        type="text" 
+        id="feedbackSearch" 
+        placeholder="Search feedback by name, city or text..." 
+        autocomplete="off"
+      >
+      <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <div class="feedback-list" id="feedbackList"></div>
+  </div>
+</section>
+
+<!-- Feedback Modal -->
+<div id="feedbackModal" class="feedback-modal">
+  <div class="feedback-modal-content">
+    <span class="close-modal" id="closeFeedbackModal">×</span>
+    <h3>Share Your Experience</h3>
+    
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="customerName">Your Name</label>
+        <input type="text" id="customerName" placeholder="Ahmed Khan" required>
+      </div>
+      <div class="form-group">
+        <label for="customerCity">City</label>
+        <input type="text" id="customerCity" placeholder="Lahore, Karachi, etc." required>
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5" required>
+          <label for="star5" title="5 stars">★</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" title="4 stars">★</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" title="3 stars">★</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" title="2 stars">★</label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1" title="1 star">★</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="feedbackText">Your Feedback</label>
+        <textarea id="feedbackText" rows="5" placeholder="Tell us about your experience..." required></textarea>
+      </div>
+      <button type="submit" class="submit-feedback-btn">Submit Feedback</button>
+    </form>
+  </div>
+</div>
+
+<!-- Confirmation Modal (no alert) -->
+<div id="confirmModal" class="confirm-modal">
+  <div class="confirm-box">
+    <h3>Thank You!</h3>
+    <p>Your feedback has been added successfully.<br>It will now appear in our testimonials carousel.</p>
+    <button class="confirm-ok-btn" id="closeConfirmModal">OK</button>
+  </div>
+</div>
+
+<script>
+   // Initial testimonials
+  const initialTestimonials = [
+    { text: "Fast delivery and excellent quality shirts! Highly recommended.", author: "Ahmed, Lahore", rating: 5 },
+    { text: "Best shoes I’ve bought online. COD made it so easy.", author: "Sara, Karachi", rating: 5 },
+    { text: "Watch looks premium — worth every rupee!", author: "Bilal, Islamabad", rating: 4 },
+    { text: "Great customer support. Received order in 2 days.", author: "Fatima, Faisalabad", rating: 5 },
+  ];
+
+  // Load & merge user feedback into testimonials
+  let allTestimonials = [...initialTestimonials];
+  function loadUserFeedback() {
+    const saved = JSON.parse(localStorage.getItem('customerFeedback') || '[]');
+    saved.forEach(f => {
+      allTestimonials.unshift({
+        text: f.text,
+        author: `${f.name}, ${f.city}`,
+        rating: f.rating
+      });
+    });
+  }
+
+  // Render carousel (infinite loop)
+  function renderTestimonials() {
+    loadUserFeedback();
+    const inner = document.getElementById('carouselInner');
+    inner.innerHTML = '';
+    const doubled = [...allTestimonials, ...allTestimonials];
+    doubled.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+      card.innerHTML = `
+        <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5 - t.rating)}</div>
+        <p>"${t.text}"</p>
+        <p><strong>— ${t.author}</strong></p>
+      `;
+      inner.appendChild(card);
+    });
+  }
+
+ function renderFeedback() {
+  const list = document.getElementById('feedbackList');
+  const feedbacks = JSON.parse(localStorage.getItem('customerFeedback') || '[]');
+
+  list.innerHTML = feedbacks.length === 0 
+    ? '<p style="text-align:center;color:#777;font-style:italic;">No feedback yet. Be the first!</p>'
+    : '';
+
+  feedbacks.forEach((f, index) => {
+    const card = document.createElement('div');
+    card.className = 'feedback-card';
+    card.innerHTML = `
+      <div class="customer-info">
+        <span class="name">${f.name}</span>
+        <span class="city">${f.city}</span>
+        <span class="stars">${'★'.repeat(f.rating)}${'☆'.repeat(5 - f.rating)}</span>
+      </div>
+      <p>${f.text}</p>
+
+      <!-- Admin Delete Button (hidden normally) -->
+      <button class="delete-feedback-btn" 
+              onclick="adminDeleteFeedback(${index})"
+              title="Delete this feedback (Admin only)">
+        <i class="fas fa-trash-alt"></i> Delete
+      </button>
+    `;
+    list.appendChild(card);
+  });
+}
+
+  // Search Feedbacks (live filter)
+  const feedbackSearch = document.getElementById('feedbackSearch');
+  feedbackSearch.addEventListener('input', () => {
+    const term = feedbackSearch.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.feedback-card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(term) ? 'block' : 'none';
+    });
+  });
+
+  // Feedback Modal & Confirmation
+  const feedbackModal = document.getElementById('feedbackModal');
+  const confirmModal = document.getElementById('confirmModal');
+  const openBtn = document.getElementById('openFeedbackModal');
+  const closeFeedback = document.getElementById('closeFeedbackModal');
+  const closeConfirm = document.getElementById('closeConfirmModal');
+  const form = document.getElementById('feedbackForm');
+
+  openBtn.addEventListener('click', () => {
+    feedbackModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeFeedback.addEventListener('click', () => {
+    feedbackModal.classList.remove('show');
+    document.body.style.overflow = '';
+  });
+
+  closeConfirm.addEventListener('click', () => {
+    confirmModal.classList.remove('show');
+    document.body.style.overflow = '';
+  });
+
+  feedbackModal.addEventListener('click', e => {
+    if (e.target === feedbackModal) {
+      feedbackModal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = document.getElementById('customerName').value.trim();
+    const city = document.getElementById('customerCity').value.trim();
+    const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value || 0);
+    const text = document.getElementById('feedbackText').value.trim();
+
+    if (!name || !city || !rating || !text) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    const feedback = { name, city, rating, text, date: new Date().toLocaleDateString() };
+
+    let saved = JSON.parse(localStorage.getItem('customerFeedback') || '[]');
+    saved.unshift(feedback);
+    localStorage.setItem('customerFeedback', JSON.stringify(saved.slice(0, 30)));
+
+    form.reset();
+    feedbackModal.classList.remove('show');
+
+    // Show beautiful confirmation instead of alert
+    document.getElementById('confirmModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    // Re-render both carousel (with new feedback) & feedback list
+    renderTestimonials();
+    renderFeedback();
+  });
+
+  // Initialize
+  renderTestimonials();
+  renderFeedback();
+  // Secret admin password (change this in real site!)
+const ADMIN_PASSWORD = "admin123"; // ← Change to something only you know
+
+function adminDeleteFeedback(index) {
+  const password = prompt("Enter admin password to delete this feedback:");
+  
+  if (password !== ADMIN_PASSWORD) {
+    alert("Incorrect password! Access denied.");
+    return;
+  }
+
+  if (!confirm("Are you sure you want to delete this feedback?")) {
+    return;
+  }
+
+  // Load current feedbacks
+  let feedbacks = JSON.parse(localStorage.getItem('customerFeedback') || '[]');
+  
+  // Remove the selected one
+  feedbacks.splice(index, 1);
+  
+  // Save back to localStorage
+  localStorage.setItem('customerFeedback', JSON.stringify(feedbacks));
+
+  // Refresh UI
+  renderFeedback();
+  renderTestimonials(); // Also refresh carousel since it uses the same data
+
+  alert("Feedback deleted successfully.");
+}
+// Add at top of script (for demo only)
+if (prompt("Are you admin? Enter password (or cancel):") === ADMIN_PASSWORD) {
+  document.body.classList.add('admin-mode');
+}
+</script>
+
+
+    <footer class="enhanced-footer">
+      <div class="footer-container">
+        <!-- Top Section: Logo + Description + Social -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img
+              src="assets/volkora-removebg-preview.png"
+              style="
+                color: white;
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                border-radius: 20px;
+              "
+              alt="Volkora Logo"
+              class="footer-logo"
+            />
+            <p class="footer-tagline">
+              Your trusted shopping destination in Pakistan – Quality, Style,
+              Fast Delivery.
+            </p>
+          </div>
+
+          <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a
+                href="https://facebook.com/volkora.pk"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://instagram.com/volkora.pk"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/923001234567"
+                target="_blank"
+                aria-label="WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://tiktok.com/@volkora.pk"
+                target="_blank"
+                aria-label="TikTok"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a
+                href="https://youtube.com/@volkora"
+                target="_blank"
+                aria-label="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Section: Links + Contact + Newsletter -->
+        <div class="footer-middle">
+          <!-- Quick Links -->
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#policies">Policies</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-column">
+            <h4>Contact Us</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="fas fa-phone-alt"></i
+                ><a href="tel:03278505273"> +923278505273</a>
+              </li>
+              <li>
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/923001234567">+923278505273</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:support@volkora.pk">support@volkora.pk</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Gujranwala, Punjab,
+                Pakistan
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-column newsletter-column">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive offers & new arrivals!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Payments + Copyright -->
+        <div class="footer-bottom">
+          <div class="payment-methods">
+            <h2>We Accept</h2>
+            <div class="payment-icons">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <img
+                src="assets/jazz-removebg-preview.png"
+                style="
+                  position: relative;
+                  width: 37px;
+                  height: 37px;
+                  bottom: 10px;
+                "
+                alt="JazzCash"
+              />
+              <img
+                src="assets/easy-removebg-preview.png"
+                style="
+                  position: relative;
+                  width: 37px;
+                  height: 40px;
+                  bottom: 13px;
+                "
+                alt="EasyPaisa"
+              />
+              <i class="fa-brands fa-cc-mastercard"></i>
+              <i class="fa-brands fa-cc-visa"></i>
+              <i class="fa-brands fa-cc-discover"></i>
+            </div>
+          </div>
+
+          <div class="copyright">
+            <p>© 2025–2026 Volkora Ecommerce. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/923278505273"
+      class="whatsapp-float"
+      id="whatsappFloat"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Policies Modal with Smooth Animations -->
+    <div id="policiesModal" class="policy-modal-overlay">
+      <div class="policy-modal-box">
+        <button class="policy-close-btn" onclick="closePoliciesModal()">
+          ×
+        </button>
+
+        <h2>Our Policies</h2>
+
+        <div class="policy-block">
+          <h3>Shipping & Delivery</h3>
+          <ul>
+            <li>2–5 business days delivery across Pakistan</li>
+            <li>Free shipping on orders over 5,000 PKR</li>
+            <li>Cash on Delivery (COD) available in most cities</li>
+            <li>Tracking shared via WhatsApp/SMS</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>Returns & Refunds</h3>
+          <ul>
+            <li>7 days hassle-free return (unused + original packaging)</li>
+            <li>
+              Return shipping paid by customer (unless defective/wrong item)
+            </li>
+            <li>Refund processed within 5–7 working days</li>
+            <li>No returns on final sale/clearance items</li>
+          </ul>
+        </div>
+
+        <div class="policy-block">
+          <h3>Payment Methods</h3>
+          <ul>
+            <li>Cash on Delivery</li>
+            <li>EasyPaisa / JazzCash</li>
+            <li>Direct Bank Transfer (HBL, Meezan, etc.)</li>
+          </ul>
+        </div>
+
+        <p class="contact-text">
+          Questions? Reach us anytime:<br />
+          <strong>WhatsApp:</strong> +923278505273
+        </p>
+      </div>
+    </div>
+
+    <!-- Description Modal -->
+    <div id="descModal" class="desc-modal-overlay" style="display: none">
+      <div class="desc-modal-box">
+        <button class="desc-close-btn" onclick="closeDescriptionModal()">
+          ×
+        </button>
+
+        <h3 id="descTitle">Product Description</h3>
+        <p id="descContent">Loading...</p>
+
+        <button class="desc-ok-btn" onclick="closeDescriptionModal()">
+          OK
+        </button>
+      </div>
+    </div>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          mobileMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking any link
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("active");
+          });
+        });
+
+        // Optional: close when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("active");
+          }
+        });
+      }
+
+      // Policies Modal - Smooth Open/Close
+      function openPoliciesModal() {
+        const modal = document.getElementById("policiesModal");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closePoliciesModal() {
+        const modal = document.getElementById("policiesModal");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+      }
+
+      // Attach click listener to ALL links that point to #policies
+      document.addEventListener("click", function (e) {
+        const target = e.target.closest('a[href="#policies"]');
+        if (target) {
+          e.preventDefault();
+          openPoliciesModal();
+        }
+      });
+
+      // Close on outside click
+      document
+        .getElementById("policiesModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closePoliciesModal();
+          }
+        });
+
+      // Close with Esc key
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closePoliciesModal();
+        }
+      });
+    </script>
+    <script>
+      // ==================== DATA ====================
+      const products = [
+        {
+          id: 1,
+          code: "dcstwft&pc",
+          name: "Buds",
+          price: 2499,
+          image: "assets/buds.jpeg",
+        },
+        { id: 2, name: "Ceesor", 
+        code: "dcstwft&pc",
+        price: 1199, 
+        image: "assets/ceesor.jpeg" },
+        {
+          id: 3,
+          code: "dcstwft&pc",
+          name: "Boys Party Shirt",
+          price: 2199,
+          image: "assets/doctor.jpeg",
+        },
+        {
+          id: 4,
+          code: "dcstwft&pc",
+          name: "Oversized Street T-Shirt",
+          price: 1399,
+          image: "assets/dumpling.jpeg",
+        },
+        {
+          id: 5,
+          code: "dcstwft&pc",
+          name: "Formal Shirt White",
+          price: 2899,
+          image: "assets/toilet.jpeg",
+        },
+        {
+          id: 6,
+          code: "dcstwft&pc",
+          name: "Smart Watch Series 8",
+          price: 7499,
+          image: "assets/toy.jpeg",
+        },
+        {
+          id: 7,
+          code: "dcstwft&pc",
+          name: "Running Shoes Pro",
+          price: 3999,
+          image: "assets/baby-head.jpeg",
+        },
+        {
+          id: 8,
+          name: "DORCO Children’s Soft Toothbrush with Fun Toy & Protective Case ",
+          code: "dcstwft&pc",
+          description:
+            "The DORCO Children’s Soft Toothbrush Set is specially designed to provide gentle and effective oral care for kids. Featuring soft bristles, it cleans tiny teeth thoroughly while protecting sensitive gums. The ergonomic brush shape helps children hold the brush correctly, making brushing easier and more comfortable.To make oral care fun and engaging, this set includes a toy to motivate children to brush regularly. The protective toothbrush cover ensures hygiene at home or while traveling. Made from child-safe, high-quality materials, this toothbrush set promotes healthy dental habits from an early age. Perfect for daily use, the DORCO kids toothbrush combines care, comfort, and fun in one set.",
+          price: 699,
+          image: "assets/tooth brush.jpeg",
+        },
+        { id: 9,
+           name: "Kitchen", 
+           code: "dcstwft&pc",
+           price: 3499,
+          image: "assets/kitchen.jpeg" },
+      ];
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // ==================== DOM ELEMENTS ====================
+      const cartCountEl = document.getElementById("cart-count");
+      const cartItemsEl = document.getElementById("cartItems");
+      const cartTotalEl = document.getElementById("cartTotal");
+      const cartModal = document.getElementById("cartModal");
+      const searchInput = document.getElementById("searchInput");
+      const productsGrid = document.getElementById("products");
+      const whatsappFloat = document.getElementById("whatsappFloat");
+
+      // ==================== FUNCTIONS ====================
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountEl.textContent = totalItems;
+      }
+
+      function renderProducts(filtered = products) {
+        productsGrid.innerHTML = "";
+
+        filtered.forEach((p) => {
+          const div = document.createElement("div");
+          div.className = "product";
+          div.innerHTML = `
+      <img src="${p.image}" alt="${p.name}">
+      <div class="product-info">
+        ${p.code ? `<h4 class="product-code">${p.code}</h4>` : ""}  <!-- only show if code exists -->
+        <h3>${p.name}</h3>
+        <div class="price">${p.price.toLocaleString()} PKR</div>
+        <button class="add-to-cart" onclick="addToCart(${p.id})">
+          Add to Cart
+        </button>
+      </div>
+    `;
+          productsGrid.appendChild(div);
+        });
+      }
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+        const existing = cart.find((item) => item.id === id);
+
+        if (existing) {
+          existing.quantity++;
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+
+        saveCart();
+        alert(product.name + " added to cart!");
+      }
+
+      function changeQuantity(id, delta) {
+        const item = cart.find((i) => i.id === id);
+        if (item) {
+          item.quantity = Math.max(1, item.quantity + delta);
+          if (item.quantity === 0) removeFromCart(id);
+          else renderCart();
+        }
+        saveCart();
+      }
+
+      function removeFromCart(id) {
+        cart = cart.filter((i) => i.id !== id);
+        saveCart();
+        renderCart();
+      }
+
+      function renderCart() {
+        if (cart.length === 0) {
+          cartItemsEl.innerHTML = `
+      <div class="empty-cart-message">
+        <i class="fas fa-shopping-cart empty-icon"></i>
+        <p>Your cart is empty.</p>
+        <small>Start adding some awesome products!</small>
+      </div>
+    `;
+        } else {
+          cartItemsEl.innerHTML = cart
+            .map(
+              (item) => `
+        <div class="cart-item">
+          <!-- Thumbnail -->
+          <div class="cart-item-thumbnail">
+            <img src="${item.image}" alt="${item.name}" />
+          </div>
+
+          <!-- Info + Code + Description Button -->
+          <div class="cart-item-info">
+            <!-- Product Code (SKU / Article No) -->
+            ${
+              item.code
+                ? `
+              <div class="product-code">
+                <small>Code:</small> ${item.code}
+              </div>
+            `
+                : ""
+            }
+
+            <strong class="item-name">${item.name}</strong>
+            
+            <div class="item-price-line">
+              <span class="unit-price">${item.price.toLocaleString()} PKR</span>
+              <span class="times">×</span>
+              <span class="quantity">${item.quantity}</span>
+              <span class="equals">=</span>
+              <span class="subtotal">${(item.price * item.quantity).toLocaleString()} PKR</span>
+            </div>
+
+            <!-- Description Button -->
+            <button class="desc-btn" 
+                    onclick="openDescriptionModal('${item.name.replace(/'/g, "\\'")}', '${(item.description || "No description available.").replace(/'/g, "\\'")}')">
+              <i class="fas fa-info-circle"></i> Description
+            </button>
+          </div>
+
+          <!-- Controls -->
+          <div class="cart-item-controls">
+            <button class="qty-btn decrease" onclick="changeQuantity(${item.id}, -1)">
+              <i class="fas fa-minus"></i>
+            </button>
+            <span class="qty-display">${item.quantity}</span>
+            <button class="qty-btn increase" onclick="changeQuantity(${item.id}, 1)">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button class="remove-btn" onclick="removeFromCart(${item.id})">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      `,
+            )
+            .join("");
+        }
+
+        const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+        cartTotalEl.textContent = total.toLocaleString() + " PKR";
+      }
+      function toggleCart() {
+        cartModal.classList.toggle("show");
+        if (cartModal.classList.contains("show")) {
+          renderCart();
+          document.getElementById("checkout-form").style.display = "none";
+        }
+      }
+
+      function showCheckoutForm() {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+        document.getElementById("checkout-form").style.display = "block";
+      }
+
+      function submitOrder() {
+        const name = document.getElementById("fullName").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const method = document.getElementById("paymentMethod").value;
+
+        if (!name || !phone || !address) {
+          alert("Please fill all required fields!");
+          return;
+        }
+
+        let itemsText = cart
+          .map((i) => `${i.name} × ${i.quantity} = ${i.price * i.quantity} PKR`)
+          .join("%0A");
+        let total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+
+        const message = `New Order from Volkora Ecommerce!
+
+Customer: ${name}
+Phone: ${phone}
+Address: ${address}
+Payment Method: ${method.toUpperCase()}
+
+Items:
+${itemsText}
+
+Total: ${total} PKR
+
+Please confirm order & share payment details.`;
+
+        const waLink = `https://wa.me/923278505273?text=${encodeURIComponent(message)}`;
+
+        // Clear cart after order placed
+        cart = [];
+        saveCart();
+        renderCart();
+        toggleCart();
+
+        // Redirect to WhatsApp
+        window.open(waLink, "_blank");
+      }
+
+      // ==================== EVENT LISTENERS ====================
+
+      window.addEventListener("scroll", () => {
+        document
+          .querySelector("header")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      searchInput.addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        const filtered = products.filter((p) =>
+          p.name.toLowerCase().includes(term),
+        );
+        renderProducts(filtered);
+      });
+
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+
+      // ==================== INIT ====================
+
+      renderProducts();
+      updateCartCount();
+
+      // Policies Modal Logic
+      const policiesModal = document.getElementById("policiesModal");
+      const closePolicies = document.getElementById("closePolicies");
+      const policiesLink = document.querySelector(
+        'a[href="#policies"], a:contains("Policies")',
+      ); // adjust selector if needed
+
+      // Open modal when clicking "Policies"
+      document
+        .querySelectorAll(
+          'a[href="#policies"], .nav-links a:contains("Policies")',
+        )
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            policiesModal.classList.add("show");
+            document.body.style.overflow = "hidden"; // prevent background scroll
+          });
+        });
+
+      // Close modal
+      closePolicies.addEventListener("click", () => {
+        policiesModal.classList.remove("show");
+        document.body.style.overflow = "";
+      });
+
+      // Close when clicking outside the content box
+      policiesModal.addEventListener("click", (e) => {
+        if (e.target === policiesModal) {
+          policiesModal.classList.remove("show");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Optional: close with Esc key
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && policiesModal.classList.contains("show")) {
+          policiesModal.classList.remove("show");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Open description modal
+      function openDescriptionModal(name, desc) {
+        document.getElementById("descTitle").textContent = name;
+        document.getElementById("descContent").textContent = desc;
+
+        const modal = document.getElementById("descModal");
+        modal.style.display = "flex";
+        setTimeout(() => modal.classList.add("show"), 10); // small delay for animation
+        document.body.style.overflow = "hidden";
+      }
+
+      // Close description modal
+      function closeDescriptionModal() {
+        const modal = document.getElementById("descModal");
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+          document.body.style.overflow = "";
+        }, 400); // match transition duration
+      }
+
+      // Click outside to close
+      document
+        .getElementById("descModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeDescriptionModal();
+          }
+        });
+
+      // Esc key to close
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeDescriptionModal();
+        }
+      });
+    </script>
+  </body>
+</html>
